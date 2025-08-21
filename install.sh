@@ -257,15 +257,21 @@ setup_terminals() {
   print_step "Setting up terminal emulators..."
 
   # WezTerm
-  if [ -f "$DOTFILES_DIR/.config/wezterm/wezterm.lua" ]; then
-    create_symlink "$DOTFILES_DIR/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+  if [ -f "$DOTFILES_DIR/config/wezterm/wezterm.lua" ]; then
+    create_symlink "$DOTFILES_DIR/config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
     print_success "WezTerm configured"
   fi
 
   # Ghostty
-  if [ -f "$DOTFILES_DIR/.config/ghostty/config" ]; then
-    create_symlink "$DOTFILES_DIR/.config/ghostty/config" "$HOME/.config/ghostty/config"
+  if [ -f "$DOTFILES_DIR/config/ghostty/config" ]; then
+    create_symlink "$DOTFILES_DIR/config/ghostty/config" "$HOME/.config/ghostty/config"
     print_success "Ghostty configured"
+  fi
+
+  # Warp
+  if [ -d "$DOTFILES_DIR/config/warp" ]; then
+    create_symlink "$DOTFILES_DIR/config/warp" "$HOME/.config/warp"
+    print_success "Warp configured"
   fi
 }
 
