@@ -128,6 +128,14 @@ main() {
   if [[ -f "$DOTFILES_DIR/config/tmux/tmux.conf" ]]; then
     log "Step 4: Installing tmux configuration..."
     create_symlink "$DOTFILES_DIR/config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+
+    # Install TPM if not present
+    if [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && [[ "$DRY_RUN" != "true" ]]; then
+      log "Installing Tmux Plugin Manager (TPM)..."
+      git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+      success "TPM installed"
+      log "Note: Start tmux and press Ctrl+a then Shift+I to install plugins"
+    fi
   else
     warning "No tmux.conf found, skipping..."
   fi
