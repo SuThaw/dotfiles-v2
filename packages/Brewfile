@@ -1,0 +1,205 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  Brewfile - Comprehensive development environment
+#  Install with: brew bundle --file=Brewfile
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "jesseduffield/lazydocker"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                     Core Essentials                      │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Shell & Terminal
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "starship"         # Cross-shell prompt
+brew "tmux"            # Terminal multiplexer
+
+# Core Tools
+brew "git"
+brew "git-delta"       # Better git diffs
+brew "gh"              # GitHub CLI
+brew "curl"
+brew "wget"
+brew "openssl"
+brew "readline"
+brew "coreutils"       # GNU core utilities
+brew "findutils"       # GNU find, locate, updatedb, xargs
+brew "gnu-sed"         # GNU sed
+brew "gawk"            # GNU awk
+brew "grep"            # GNU grep
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                      Editors & IDEs                      │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "neovim"
+brew "vim"             # Backup editor
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Development Tools                      │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Node.js & JavaScript
+brew "nvm"             # Node version manager
+brew "yarn"
+brew "pnpm"
+
+# Go
+brew "go"
+brew "golangci-lint"   # Go linter
+
+# Python
+brew "python@3.12"
+brew "python@3.11"
+brew "pipx"            # Install Python apps in isolated envs
+brew "pyenv"           # Python version management
+brew "ruff"            # Fast Python linter
+
+# Rust
+brew "rustup"          # Rust toolchain installer
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    File Management                       │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "tree"            # Directory listing
+brew "eza"             # Modern ls replacement
+brew "fd"              # Simple, fast find alternative
+brew "ripgrep"         # Fast grep alternative
+brew "bat"             # Cat with syntax highlighting
+brew "fzf"             # Fuzzy finder
+brew "zoxide"          # Smarter cd command
+brew "ranger"          # Terminal file manager
+brew "trash"           # Move files to trash
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                     Productivity                         │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "lazygit"         # Terminal UI for git
+brew "lazydocker"      # Terminal UI for docker
+brew "jq"              # JSON processor
+brew "yq"              # YAML processor
+brew "httpie"          # User-friendly HTTP client
+brew "tldr"            # Simplified man pages
+brew "autojump"        # Jump to directories
+brew "direnv"          # Per-directory environment variables
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                      Databases                           │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "postgresql@16"
+brew "mysql"
+brew "redis"
+brew "sqlite"
+brew "pgcli"           # Better PostgreSQL CLI
+brew "mycli"           # Better MySQL CLI
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Container Tools                        │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "docker"
+brew "docker-compose"
+brew "kubectl"
+brew "k9s"             # Terminal UI for Kubernetes
+brew "helm"            # Kubernetes package manager
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Network Tools                         │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "nmap"
+brew "telnet"
+brew "mtr"             # Better traceroute
+brew "speedtest-cli"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   System Monitoring                      │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "htop"
+brew "btop"            # Better htop
+brew "ncdu"            # Disk usage analyzer
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                      Security                            │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "gnupg"           # GPG encryption
+brew "ssh-copy-id"     # Copy SSH keys
+brew "openssh"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Cloud Tools                           │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "awscli"
+brew "terraform"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                     Media Tools                          │
+# ╰──────────────────────────────────────────────────────────╯
+
+brew "ffmpeg"          # Media processing
+brew "imagemagick"     # Image processing
+brew "youtube-dl"      # Download videos
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                  Fonts (via Cask)                        │
+# ╰──────────────────────────────────────────────────────────╯
+
+cask "font-jetbrains-mono-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-meslo-lg-nerd-font"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                 GUI Applications (Casks)                 │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Development
+cask "visual-studio-code"
+cask "docker"
+cask "postman"
+cask "tableplus"       # Database GUI
+cask "sourcetree"      # Git GUI
+
+# Terminal Emulators
+cask "wezterm"
+cask "warp"            # Modern terminal with AI
+cask "ghostty"         # If available
+cask "iterm2"          # Backup terminal
+
+# Browsers
+cask "google-chrome"
+cask "firefox"
+
+# Productivity
+cask "raycast"         # Spotlight replacement
+cask "rectangle"       # Window management
+cask "alfred"          # Alternative to Raycast
+cask "notion"
+cask "obsidian"        # Note taking
+
+# Communication
+cask "slack"
+
+# Utilities
+cask "the-unarchiver"
+cask "stats"           # System monitor
+cask "hiddenbar"       # Menu bar manager
+cask "bartender"       # Alternative menu bar manager
+
+# Optional - Uncomment if needed
+# cask "1password"
+# cask "spotify"
+# cask "figma"
