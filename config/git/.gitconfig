@@ -1,0 +1,218 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  Git Configuration with Delta and Useful Aliases
+# ═══════════════════════════════════════════════════════════════════════════
+
+[user]
+    # TODO: Update these with your information
+    name = Thaw Lwin Htun
+    email = suthaw524@gmail.com
+
+[core]
+    editor = nvim
+    pager = delta
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    ignorecase = false
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[init]
+    defaultBranch = main
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[pull]
+    rebase = true
+    ff = only
+
+[fetch]
+    prune = true
+    prunetags = true
+
+[merge]
+    conflictstyle = diff3
+    tool = nvimdiff
+
+[diff]
+    tool = nvimdiff
+    algorithm = histogram
+    colorMoved = default
+
+[rebase]
+    autoStash = true
+    autoSquash = true
+
+# ═══════════════════════════════════════════════════════════════════════════
+#                              Delta Configuration
+# ═══════════════════════════════════════════════════════════════════════════
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = Tokyo Night
+    true-color = always
+    file-style = bold yellow ul
+    file-decoration-style = none
+    commit-decoration-style = bold yellow box ul
+    hunk-header-decoration-style = blue box
+    hunk-header-line-number-style = purple
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+
+# ═══════════════════════════════════════════════════════════════════════════
+#                                   Aliases
+# ═══════════════════════════════════════════════════════════════════════════
+
+[alias]
+    # ═══ Basic shortcuts ═══
+    s = status -sb
+    st = status
+    co = checkout
+    cob = checkout -b
+    br = branch
+    ci = commit
+    cm = commit -m
+    ca = commit --amend
+    cane = commit --amend --no-edit
+    cp = cherry-pick
+    
+    # ═══ Diff shortcuts ═══
+    d = diff
+    ds = diff --staged
+    dc = diff --cached
+    
+    # ═══ Adding/Staging ═══
+    a = add
+    aa = add --all
+    ap = add --patch
+    au = add --update
+    
+    # ═══ Logging ═══
+    # Beautiful one-line log
+    l = log --oneline --graph --decorate
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    # Detailed log
+    ll = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat
+    
+    # Show commits from all branches
+    la = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    # Show recent commits
+    recent = log --oneline -10
+    
+    # ═══ Branching ═══
+    ba = branch -a
+    bd = branch -d
+    bD = branch -D
+    branches = branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:green)(%(committerdate:relative))%(color:reset) - %(authorname)'
+    
+    # ═══ Remotes ═══
+    r = remote -v
+    
+    # ═══ Stashing ═══
+    sta = stash
+    stl = stash list
+    stp = stash pop
+    std = stash drop
+    sts = stash show -p
+    
+    # ═══ Reset/Clean ═══
+    unstage = reset HEAD --
+    uncommit = reset --soft HEAD~1
+    discard = checkout --
+    nevermind = !git reset --hard HEAD && git clean -df
+    
+    # ═══ Working with commits ═══
+    # Show last commit
+    last = log -1 HEAD --stat
+    
+    # Undo last commit but keep changes
+    undo = reset --soft HEAD~1
+    
+    # WIP - Work in Progress (quick save)
+    wip = !git add -A && git commit -m 'WIP: Work in progress [skip ci]'
+    unwip = !git log -n 1 | grep -q -c 'WIP' && git reset HEAD~1
+    
+    # ═══ Finding ═══
+    # Find branches containing commit
+    fb = "!f() { git branch -a --contains $1; }; f"
+    
+    # Find commits by message
+    fm = "!git log --oneline --grep"
+    
+    # ═══ Useful shortcuts ═══
+    # Pull and rebase
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    
+    # Push to origin
+    po = push origin
+    pof = push origin --force-with-lease
+    
+    # Save current work
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    
+    # Show verbose remotes
+    remotes = remote -v
+    
+    # List aliases
+    aliases = config --get-regexp alias
+    
+    # Show contributors
+    contributors = shortlog --summary --numbered
+    
+    # ═══ GitHub/GitLab integration ═══
+    # Requires 'gh' CLI or 'hub'
+    pr = !gh pr create
+    prs = !gh pr list
+    
+    # Open repo in browser
+    browse = !gh repo view --web
+
+# ═══════════════════════════════════════════════════════════════════════════
+#                                   Colors
+# ═══════════════════════════════════════════════════════════════════════════
+
+[color]
+    ui = true
+    diff = auto
+    status = auto
+    branch = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
+
+# ═══════════════════════════════════════════════════════════════════════════
+#                                URL Shortcuts
+# ═══════════════════════════════════════════════════════════════════════════
+
+[url "git@github.com:"]
+    insteadOf = gh:
+    pushInsteadOf = github:
+    pushInsteadOf = git://github.com/
+
+[url "git@gitlab.com:"]
+    insteadOf = gl:
+    pushInsteadOf = gitlab:
+    pushInsteadOf = git://gitlab.com/
