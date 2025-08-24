@@ -133,17 +133,17 @@ install_homebrew() {
 install_brew_packages() {
   print_step "Installing packages from Brewfile..."
 
-  if [ -f "$DOTFILES_DIR/Brewfile" ]; then
+  if [ -f "$DOTFILES_DIR/packages/Brewfile" ]; then
     # Check if running on macOS for casks
     if [[ "$OS_TYPE" == "Darwin" ]]; then
-      brew bundle --file="$DOTFILES_DIR/Brewfile"
+      brew bundle --file="$DOTFILES_DIR/packages/Brewfile"
     else
       # On Linux, skip casks
-      brew bundle --file="$DOTFILES_DIR/Brewfile" --no-cask
+      brew bundle --file="$DOTFILES_DIR/packages/Brewfile" --no-cask
     fi
     print_success "All packages installed"
   else
-    print_error "Brewfile not found at $DOTFILES_DIR/Brewfile"
+    print_error "Brewfile not found at $DOTFILES_DIR/packages/Brewfile"
     exit 1
   fi
 }
@@ -153,13 +153,13 @@ setup_zsh() {
   print_step "Setting up Zsh configuration..."
 
   # Backup and link .zshrc
-  if [ -f "$DOTFILES_DIR/.zshrc" ]; then
-    create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+  if [ -f "$DOTFILES_DIR/config/zsh/.zshrc" ]; then
+    create_symlink "$DOTFILES_DIR/config/zsh/.zshrc" "$HOME/.zshrc"
   fi
 
   # Link Zsh components
-  if [ -d "$DOTFILES_DIR/zsh" ]; then
-    for file in "$DOTFILES_DIR/zsh"/*.zsh; do
+  if [ -d "$DOTFILES_DIR/config/zsh" ]; then
+    for file in "$DOTFILES_DIR/config/zsh"/*.zsh; do
       if [ -f "$file" ]; then
         filename=$(basename "$file")
         create_symlink "$file" "$HOME/.zsh/$filename"
@@ -174,8 +174,8 @@ setup_zsh() {
 setup_starship() {
   print_step "Setting up Starship prompt..."
 
-  if [ -f "$DOTFILES_DIR/.config/starship.toml" ]; then
-    create_symlink "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
+  if [ -f "$DOTFILES_DIR/config/starship.toml" ]; then
+    create_symlink "$DOTFILES_DIR/config/starship.toml" "$HOME/.config/starship.toml"
     print_success "Starship configured"
   fi
 }
@@ -192,8 +192,8 @@ setup_tmux() {
   fi
 
   # Link tmux config
-  if [ -f "$DOTFILES_DIR/.config/tmux/tmux.conf" ]; then
-    create_symlink "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+  if [ -f "$DOTFILES_DIR/config/tmux/tmux.conf" ]; then
+    create_symlink "$DOTFILES_DIR/config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
   fi
 
   print_success "tmux configuration complete"
@@ -222,13 +222,13 @@ setup_neovim() {
   mkdir -p "$HOME/.config/nvim/lua/config"
   mkdir -p "$HOME/.config/nvim/lua/plugins"
 
-  for config_file in "$DOTFILES_DIR/.config/nvim/lua/config"/*.lua; do
+  for config_file in "$DOTFILES_DIR/config/nvim/lua/config"/*.lua; do
     if [ -f "$config_file" ]; then
       create_symlink "$config_file" "$HOME/.config/nvim/lua/config/$(basename "$config_file")"
     fi
   done
 
-  for plugin_file in "$DOTFILES_DIR/.config/nvim/lua/plugins"/*.lua; do
+  for plugin_file in "$DOTFILES_DIR/config/nvim/lua/plugins"/*.lua; do
     if [ -f "$plugin_file" ]; then
       create_symlink "$plugin_file" "$HOME/.config/nvim/lua/plugins/$(basename "$plugin_file")"
     fi
@@ -241,12 +241,12 @@ setup_neovim() {
 setup_git() {
   print_step "Setting up Git configuration..."
 
-  if [ -f "$DOTFILES_DIR/.gitconfig" ]; then
-    create_symlink "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+  if [ -f "$DOTFILES_DIR/config/git/.gitconfig" ]; then
+    create_symlink "$DOTFILES_DIR/config/git/.gitconfig" "$HOME/.gitconfig"
   fi
 
-  if [ -f "$DOTFILES_DIR/.gitignore_global" ]; then
-    create_symlink "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
+  if [ -f "$DOTFILES_DIR/config/git/.gitignore_global" ]; then
+    create_symlink "$DOTFILES_DIR/config/git/.gitignore_global" "$HOME/.gitignore_global"
   fi
 
   print_success "Git configuration complete"

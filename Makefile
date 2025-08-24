@@ -143,12 +143,12 @@ doctor: ## Run full system diagnostics
 
 brew-backup: ## Backup current Homebrew packages to Brewfile
 	@echo -e "$(BLUE)Backing up Homebrew packages...$(NC)"
-	@brew bundle dump --force --file=Brewfile.backup
-	@echo -e "$(GREEN)✓ Brewfile backed up to Brewfile.backup$(NC)"
+	@brew bundle dump --force --file=packages/Brewfile.backup
+	@echo -e "$(GREEN)✓ Brewfile backed up to packages/Brewfile.backup$(NC)"
 
 brew-restore: ## Install packages from Brewfile
 	@echo -e "$(BLUE)Installing packages from Brewfile...$(NC)"
-	@brew bundle --file=Brewfile
+	@brew bundle --file=packages/Brewfile
 	@echo -e "$(GREEN)✓ All packages installed$(NC)"
 
 brew-clean: ## Clean up Homebrew (remove old versions)

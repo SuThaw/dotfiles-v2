@@ -297,7 +297,7 @@ remove_all_symlinks() {
 remove_brew_packages() {
   print_step "Removing Homebrew packages from Brewfile..."
 
-  if [ ! -f "$DOTFILES_DIR/Brewfile" ]; then
+  if [ ! -f "$DOTFILES_DIR/packages/Brewfile" ]; then
     print_error "Brewfile not found"
     return
   fi
@@ -327,7 +327,7 @@ remove_brew_packages() {
           print_success "Removed $cask" ||
           print_warning "$cask not installed"
       fi
-    done <"$DOTFILES_DIR/Brewfile"
+    done <"$DOTFILES_DIR/packages/Brewfile"
 
     # Clean up
     brew autoremove
