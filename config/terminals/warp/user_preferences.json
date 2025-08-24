@@ -1,0 +1,91 @@
+{
+  "appearance": {
+    "theme": "tokyo_night",
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 14,
+    "line_height": 1.2,
+    "cursor_style": "block",
+    "cursor_blinking": true,
+    "window_opacity": 0.95,
+    "window_blur": true,
+    "tab_bar_position": "top",
+    "tab_bar_style": "modern",
+    "show_tab_close_buttons": true,
+    "show_new_tab_button": true,
+    "compact_tabs": false,
+    "show_minimap": false,
+    "show_command_palette_hint": true
+  },
+  "terminal": {
+    "shell": "zsh",
+    "default_directory": "~",
+    "working_directory": "inherit",
+    "scrollback_lines": 10000,
+    "enable_mouse": true,
+    "copy_on_select": true,
+    "paste_on_middle_click": true,
+    "confirm_quit": false,
+    "confirm_close_tab": false,
+    "auto_update": true,
+    "check_for_updates": false,
+    "telemetry": false,
+    "crash_reporting": false,
+    "usage_analytics": false
+  },
+  "editor": {
+    "vim_mode": false,
+    "enable_suggestions": true,
+    "enable_completions": true,
+    "enable_ai_command_search": true,
+    "ai_command_search_provider": "warp",
+    "enable_input_editor": true,
+    "input_editor_mode": "vim",
+    "show_input_method": true,
+    "word_wrap": false,
+    "enable_ligatures": true
+  },
+  "workflows": {
+    "enable_workflows": true,
+    "show_workflow_banner": false,
+    "workflow_execution_timeout": 30000
+  },
+  "ai": {
+    "enable_ai_features": true,
+    "ai_provider": "warp",
+    "show_ai_suggestions": true,
+    "ai_suggestion_delay": 500,
+    "enable_ai_command_suggestions": true,
+    "enable_ai_error_suggestions": true,
+    "privacy_mode": false
+  },
+  "performance": {
+    "gpu_acceleration": true,
+    "render_backend": "webgpu",
+    "vsync": true,
+    "frame_rate_limit": 60,
+    "memory_usage_limit": 1024
+  },
+  "notifications": {
+    "enable_notifications": true,
+    "show_bell_notifications": false,
+    "show_update_notifications": false,
+    "notification_sound": false
+  },
+  "integrations": {
+    "enable_github_integration": true,
+    "enable_docker_integration": true,
+    "enable_kubernetes_integration": true,
+    "show_git_status": true,
+    "git_status_timeout": 5000
+  },
+  "privacy": {
+    "share_usage_data": false,
+    "share_crash_reports": false,
+    "collect_analytics": false,
+    "personalized_suggestions": true
+  },
+  "experimental": {
+    "enable_experimental_features": false,
+    "beta_features": false
+  }
+}

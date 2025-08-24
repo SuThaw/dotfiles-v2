@@ -1,0 +1,278 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  Warp Terminal Keybindings Configuration
+#  Custom keyboard shortcuts for efficient workflow
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Tab Management                        │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Create new tab
+- key: "cmd+t"
+  action: "new_tab"
+
+# Close current tab
+- key: "cmd+w"
+  action: "close_tab"
+
+# Navigate tabs
+- key: "cmd+shift+["
+  action: "previous_tab"
+- key: "cmd+shift+]"
+  action: "next_tab"
+
+# Jump to specific tab (1-9)
+- key: "cmd+1"
+  action: "goto_tab"
+  args: { index: 1 }
+- key: "cmd+2"
+  action: "goto_tab"
+  args: { index: 2 }
+- key: "cmd+3"
+  action: "goto_tab"
+  args: { index: 3 }
+- key: "cmd+4"
+  action: "goto_tab"
+  args: { index: 4 }
+- key: "cmd+5"
+  action: "goto_tab"
+  args: { index: 5 }
+- key: "cmd+6"
+  action: "goto_tab"
+  args: { index: 6 }
+- key: "cmd+7"
+  action: "goto_tab"
+  args: { index: 7 }
+- key: "cmd+8"
+  action: "goto_tab"
+  args: { index: 8 }
+- key: "cmd+9"
+  action: "goto_tab"
+  args: { index: 9 }
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Window Management                      │
+# ╰──────────────────────────────────────────────────────────╯
+
+# New window
+- key: "cmd+n"
+  action: "new_window"
+
+# Close window
+- key: "cmd+shift+w"
+  action: "close_window"
+
+# Minimize window
+- key: "cmd+m"
+  action: "minimize_window"
+
+# Toggle fullscreen
+- key: "cmd+ctrl+f"
+  action: "toggle_fullscreen"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                  Pane Management                         │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Split panes
+- key: "cmd+d"
+  action: "split_right"
+- key: "cmd+shift+d"
+  action: "split_down"
+
+# Close pane
+- key: "cmd+shift+w"
+  action: "close_pane"
+
+# Navigate panes (vim-style)
+- key: "cmd+h"
+  action: "focus_pane_left"
+- key: "cmd+j"
+  action: "focus_pane_down"
+- key: "cmd+k"
+  action: "focus_pane_up"
+- key: "cmd+l"
+  action: "focus_pane_right"
+
+# Resize panes
+- key: "cmd+shift+h"
+  action: "resize_pane_left"
+- key: "cmd+shift+j"
+  action: "resize_pane_down"
+- key: "cmd+shift+k"
+  action: "resize_pane_up"
+- key: "cmd+shift+l"
+  action: "resize_pane_right"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Text Operations                        │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Copy and paste
+- key: "cmd+c"
+  action: "copy"
+- key: "cmd+v"
+  action: "paste"
+
+# Select all
+- key: "cmd+a"
+  action: "select_all"
+
+# Clear screen
+- key: "cmd+k"
+  action: "clear_screen"
+
+# Clear buffer
+- key: "cmd+alt+k"
+  action: "clear_buffer"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                      Search                              │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Find in current session
+- key: "cmd+f"
+  action: "search"
+
+# Find next
+- key: "cmd+g"
+  action: "search_next"
+
+# Find previous
+- key: "cmd+shift+g"
+  action: "search_previous"
+
+# Global search (across all sessions)
+- key: "cmd+shift+f"
+  action: "global_search"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Font & Zoom                            │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Increase font size
+- key: "cmd+plus"
+  action: "increase_font_size"
+- key: "cmd+="
+  action: "increase_font_size"
+
+# Decrease font size
+- key: "cmd+minus"
+  action: "decrease_font_size"
+
+# Reset font size
+- key: "cmd+0"
+  action: "reset_font_size"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Scrolling                             │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Scroll up/down
+- key: "cmd+up"
+  action: "scroll_up"
+- key: "cmd+down"
+  action: "scroll_down"
+
+# Scroll to top/bottom
+- key: "cmd+home"
+  action: "scroll_to_top"
+- key: "cmd+end"
+  action: "scroll_to_bottom"
+
+# Page up/down
+- key: "cmd+page_up"
+  action: "page_up"
+- key: "cmd+page_down"
+  action: "page_down"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                     AI Features                          │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Open AI command search
+- key: "cmd+shift+p"
+  action: "ai_command_search"
+
+# Ask Warp AI
+- key: "cmd+shift+a"
+  action: "ask_warp_ai"
+
+# AI workflow suggestions
+- key: "cmd+shift+w"
+  action: "ai_workflow_suggestions"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Workflows                             │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Command palette
+- key: "cmd+p"
+  action: "command_palette"
+
+# Workflow runner
+- key: "cmd+r"
+  action: "run_workflow"
+
+# Quick commands
+- key: "cmd+shift+;"
+  action: "quick_commands"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                   Development                            │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Toggle input editor
+- key: "cmd+shift+e"
+  action: "toggle_input_editor"
+
+# Execute command
+- key: "cmd+enter"
+  action: "execute_command"
+
+# Interrupt current command
+- key: "cmd+c"
+  action: "interrupt_command"
+  context: "command_running"
+
+# History search
+- key: "cmd+ctrl+h"
+  action: "history_search"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                     Debugging                            │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Developer tools
+- key: "cmd+alt+i"
+  action: "toggle_developer_tools"
+
+# Reload application
+- key: "cmd+shift+r"
+  action: "reload_app"
+
+# Toggle debug mode
+- key: "cmd+shift+d"
+  action: "toggle_debug_mode"
+
+# ╭──────────────────────────────────────────────────────────╮
+# │                    Miscellaneous                         │
+# ╰──────────────────────────────────────────────────────────╯
+
+# Settings
+- key: "cmd+,"
+  action: "open_settings"
+
+# Quit application
+- key: "cmd+q"
+  action: "quit_app"
+
+# Hide application
+- key: "cmd+h"
+  action: "hide_app"
+  context: "global"
+
+# Show/hide Warp
+- key: "cmd+space"
+  action: "toggle_warp_visibility"
+  context: "global"
