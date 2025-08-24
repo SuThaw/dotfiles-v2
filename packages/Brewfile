@@ -4,8 +4,8 @@
 # ═══════════════════════════════════════════════════════════════════════════
 
 # Taps
-tap "homebrew/bundle"
-tap "homebrew/services"
+#tap "homebrew/bundle"
+#tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "jesseduffield/lazydocker"
 
@@ -107,8 +107,8 @@ brew "mycli"           # Better MySQL CLI
 # │                   Container Tools                        │
 # ╰──────────────────────────────────────────────────────────╯
 
-brew "docker"
-brew "docker-compose"
+#brew "docker"
+#brew "docker-compose"
 brew "kubectl"
 brew "k9s"             # Terminal UI for Kubernetes
 brew "helm"            # Kubernetes package manager
@@ -151,7 +151,6 @@ brew "terraform"
 
 brew "ffmpeg"          # Media processing
 brew "imagemagick"     # Image processing
-brew "youtube-dl"      # Download videos
 
 # ╭──────────────────────────────────────────────────────────╮
 # │                  Fonts (via Cask)                        │
